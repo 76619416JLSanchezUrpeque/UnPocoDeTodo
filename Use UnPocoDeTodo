@@ -1,13 +1,8 @@
 test> use UnPocoDeTodo
 UnPocoDeTodo> show collections
-Ayuda
-CarritoDeCompra
-CatologoAccesorios
-CatologoBelleza
-CatologoCasa
-CatologoRopa
-Contacto
-Nosotros
-Ubicacion
-
+AcercaDeNostros
+Contactanos
+Inicio
+Tienda
+Ubicaciones
 UnPocoDeTodo>
