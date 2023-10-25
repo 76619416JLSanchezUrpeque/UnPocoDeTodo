@@ -1,0 +1,23 @@
+UnPocoDeTodo> db.Contacto.find()
+[
+_id:ObjectId("653878b998f07eae1dc81d9a"),
+id: 100000,
+Asunto: 'Consulta1',
+Cliente: 1,
+Nombre: 'Orue Alberto Gonsalez',
+Email: 'GonssalezTXT@gmail.com',
+Direccion: 'Mz 116 a LT10 Gr14 Bayobar'
+Mensaje: 'Me intersaria  saber sobre sus metodos de entrega de productos porfavor'
+},
+{
+_id:ObjectId("653878cc998f07eae1dc81d9b"),
+id: 100001,
+Asunto: 'Preferencia',
+Cliente: 2,
+Nombre: 'Carmen Jazmin Caja',
+Email: 'FamiliaSH1999@gmail.com',
+Direccion: 'Mz 114 a LT16 Gr15 Huascar',
+Mensaje: 'Como cliente reccurrente me preguntaba si hay algun beneficio que pueda obtener'
+}
+]
+UnPocoDeTodo>
