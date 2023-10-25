@@ -1,0 +1,77 @@
+[{
+  "_id": {
+    "$oid": "6538f28d6854aa5a16a7d5c3"
+  },
+  "Articulo": "One Step",
+  "Precio": "S/50"
+},
+{
+  "_id": {
+    "$oid": "6538f29e6854aa5a16a7d5c4"
+  },
+  "Articulo": "Audifonos-Samsung",
+  "Precio": "S/25"
+},
+{
+  "_id": {
+    "$oid": "6538f2c56854aa5a16a7d5c5"
+  },
+  "Articulo": "Scooter-Niña",
+  "Precio": "S/50"
+},
+{
+  "_id": {
+    "$oid": "6538f2cf6854aa5a16a7d5c6"
+  },
+  "Articulo": "Delineador Diamante",
+  "Precio": "S/18"
+},
+{
+  "_id": {
+    "$oid": "6538f2d46854aa5a16a7d5c7"
+  },
+  "Articulo": "Labiales Neon",
+  "Precio": "S/55"
+},
+{
+  "_id": {
+    "$oid": "6538f2da6854aa5a16a7d5c8"
+  },
+  "Articulo": "Cartera Cadena",
+  "Precio": "S/40"
+},
+{
+  "_id": {
+    "$oid": "6538f2e16854aa5a16a7d5c9"
+  },
+  "Articulo": "Parlante de Colores",
+  "Precio": "S/50"
+},
+{
+  "_id": {
+    "$oid": "6538f2e66854aa5a16a7d5ca"
+  },
+  "Articulo": "Morral para hombre",
+  "Precio": "S/30"
+},
+{
+  "_id": {
+    "$oid": "6538f2ea6854aa5a16a7d5cb"
+  },
+  "Articulo": "Aro + Tripode",
+  "Precio": "S/60"
+},
+{
+  "_id": {
+    "$oid": "6538f2ef6854aa5a16a7d5cc"
+  },
+  "Articulo": "Paleta-Hawai",
+  "Precio": "S/50"
+},
+{
+  "_id": {
+    "$oid": "6538f2f36854aa5a16a7d5cd"
+  },
+  "Articulo": "Paleta-Palta",
+  "Precio": "S/45"
+}]
