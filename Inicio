@@ -1,0 +1,13 @@
+[{
+  "_id": {
+    "$oid": "6538e5886854aa5a16a7d5b3"
+  },
+  "Logo": "UnPocoDeTodo",
+  "banner": "Foto llamativa",
+  "articulosUnicos": [
+    "One Step",
+    "Audifonos",
+    "Scooter",
+    "Delineador Diamante"
+  ]
+}]
