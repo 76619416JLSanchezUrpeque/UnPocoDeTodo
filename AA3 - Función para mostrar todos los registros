@@ -1,0 +1,24 @@
+// Función para mostrar todos los registros
+  async function mostrarRegistros() {
+    try {
+      
+      const respuesta = await fetch('/api/obtenerRegistros');
+      if (respuesta.ok) {
+        const registros = await respuesta.json();
+        const listaRegistros = document.getElementById('listaRegistros');
+        listaRegistros.innerHTML = '';
+        registros.forEach(registro => {
+          const li = document.createElement('li');
+          li.textContent = `${registro.campo}: ${registro.valor}`;
+          listaRegistros.appendChild(li);
+        });
+      } else {
+        console.error('Error al obtener los registros');
+      }
+    } catch (error) {
+      console.error('Error de red:', error);
+    }
+  }
+  
+  // Mostrar registros al cargar la página
+  mostrarRegistros();
