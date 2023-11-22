@@ -1,0 +1,25 @@
+const { MongoClient } = require('mongodb');
+const { type } = require('os');
+
+const uri = '/api/obtenerRegistros'; // Reemplaza con tu propia URI
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+
+async function conectarMongoDB() {
+  try {
+    await client.connect();
+    console.log('Conectado a MongoDB correctamente');
+    // Aquí puedes realizar operaciones en la base de datos
+    const database = client.db('UnPocoDeTodo');
+    const collection = database.collection('TEST');
+    
+    // Ejemplo: Insertar un documento
+    await collection.insertOne({ campo: 'valor' });
+  } catch (error) {
+    console.error('Error al conectar a MongoDB:', error);
+  } finally {
+    await client.close();
+    console.log('Conexión cerrada');
+  }
+}
+
+conectarMongoDB();
