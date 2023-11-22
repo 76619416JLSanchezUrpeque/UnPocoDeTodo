@@ -1,0 +1,14 @@
+  // Leer todos los documentos de una colección
+async function leerDocumentos() {
+    try {
+      const database = client.db('UNPOCODETODO2');
+      const collection = database.collection('UNPOCODETODO2.TEST');
+  
+      const documentos = await collection.find({}).toArray();
+      console.log('Documentos encontrados:', documentos);
+    } catch (error) {
+      console.error('Error al leer documentos:', error);
+    }
+  }
+  
+  leerDocumentos();
