@@ -1,0 +1,29 @@
+prueba de conexion
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Operaciones CRUD</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Operaciones CRUD</h1>
+
+  <!-- Formulario para insertar datos -->
+  <h2>Agregar Registro</h2>
+  <form id="formulario">
+    <input type="text" id="campo" placeholder="Campo">
+    <input type="text" id="valor" placeholder="Valor">
+    <button type="button" onclick="agregarRegistro()">Agregar</button>
+  </form>
+
+  <!-- Lista para mostrar los registros -->
+  <h2>Registros</h2>
+  <ul id="listaRegistros"></ul>
+
+  <script src="scripts.js" type="module">
+    // SCRIPTS DE LA PAGINA, TYPE MODULE.
+  </script>
+</body>
+</html>
