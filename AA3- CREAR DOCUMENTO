@@ -1,0 +1,14 @@
+// Insertar un documento en una colección
+async function crearDocumento() {
+    try {
+      const database = client.db('UNPOCODETODO2');
+      const collection = database.collection('UNPOCODETODO2.TEST');
+  
+      const resultado = await collection.insertOne({ campo: 'valor' });
+      console.log('Documento insertado:', resultado.insertedId);
+    } catch (error) {
+      console.error('Error al insertar documento:', error);
+    }
+  }
+  
+  crearDocumento();
