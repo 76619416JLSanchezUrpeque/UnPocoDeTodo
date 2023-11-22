@@ -1,0 +1,23 @@
+// Función para agregar un registro
+async function agregarRegistro() {
+    const campo = document.getElementById('campo').value;
+    const valor = document.getElementById('valor').value;
+  
+    try {
+      const respuesta = await fetch('/api/registrar', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ campo, valor })
+      });
+  
+      if (respuesta.ok) {
+        mostrarRegistros();
+      } else {
+        console.error('Error al agregar el registro');
+      }
+    } catch (error) {
+      console.error('Error de red:', error);
+    }
+  }
