@@ -1,0 +1,17 @@
+ // Actualizar un documento
+async function actualizarDocumento() {
+    try {
+      const database = client.db('UnPocoDeTodo');
+      const collection = database.collection('UnPocoDeTodoProductos');
+  
+      const filtro = { campo: 'valor' }; // Filtro para encontrar el documento a actualizar
+      const actualizacion = { $set: { nuevoCampo: 'nuevoValor' } }; // Cambios a realizar
+  
+      const resultado = await collection.updateOne(filtro, actualizacion);
+      console.log('Documento actualizado:', resultado.modifiedCount);
+    } catch (error) {
+      console.error('Error al actualizar documento:', error);
+    }
+  }
+  
+  actualizarDocumento();
