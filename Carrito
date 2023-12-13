@@ -1,0 +1,121 @@
+ 
+ // Import the functions you need from the SDKs you need
+ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+ import { getAuth } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+ // TODO: Add SDKs for Firebase products that you want to use
+ // https://firebase.google.com/docs/web/setup#available-libraries
+
+ // Your web app's Firebase configuration
+ // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+ const firebaseConfig = {
+   apiKey: "AIzaSyBaTbTjCMQbYfnwDOioP_YeBd6We1Q1yKM",
+   authDomain: "desarrollo-447e2.firebaseapp.com",
+   projectId: "desarrollo-447e2",
+   storageBucket: "desarrollo-447e2.appspot.com",
+   messagingSenderId: "196624156912",
+   appId: "1:196624156912:web:34483b21d040bb92f85a35",
+   measurementId: "G-TSYL08L9RL"
+ };
+ import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+ import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+ import { signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+function showMessage(message, type = "success"){
+    Toastify({
+        text: message,
+        duration: 3000,
+        newWindow: true,
+        close: true,
+        gravity: "bottom",
+        position: "right",
+        stopOnFocus: true,
+        style: {
+            background: type==="success" ? "green" : "red"
+        },
+        onclick: function(){}
+    }).showToast();
+}
+
+ // Initialize Firebase
+ const app = initializeApp(firebaseConfig);
+ const auth = getAuth(app);
+
+ const formulario = document.querySelector('#formu');
+ formulario.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const correo= document.querySelector('#email').value;
+    const contra= document.querySelector('#pass').value;
+
+    const yar= document.querySelector('#matenme');
+    const cambio = document.querySelector('#cambiar');
+    try {
+        const credencial = await createUserWithEmailAndPassword(auth, correo, contra);
+        showMessage("Bienvendio "+ correo);
+        yar.innerHTML= '<button type="button" id="cerrar">Cerrar Sesion</button> <section class="menu-pl container"> <br><br><br><h2 id="combinados">NUESTRAS <span>TENDENCIAS</span> </h2><div class="general-content"><div class="general-txt"><img src="./ImgCatalogo/img1-removebg-preview.png" alt=""><h3>VESTIDOS </h3><p>COLOR: rosa, verde, rojo, negro. <br>TALLA: S-M-L-XL <br>STOCK: 20 unidades</p><div class="prices"><span>S/70</span><a href="../PAGINA DE PAGO/index.html" class="btn-2">COMPRAR</a></div></div><div class="general-txt"><img src="./ImgCatalogo/img2-removebg-preview.png" alt=""><h3>CHAQUETA HARLEM</h3><p>COLOR: verde, azul, negro. <br>TALLA: S-M <br>STOCK: 30 unidades</p><div class="prices"><span>S/89.00</span><a href="../PAGINA DE PAGO/index.html" class="btn-2">COMPRAR</a></div></div><div class="general-txt"><img src="./ImgCatalogo/img3-removebg-preview.png" alt=""><h3>JEAN - HOMBRE</h3><p>COLOR: azul, negro, beige. <br>TALLA: S-M-L <br>STOCK: 50 unidades</p><div class="prices"><span>S/99.00</span><a href="../PAGINA DE PAGO/index.html" class="btn-2">COMPRAR</a></div></div><div class="general-txt"><img src="./ImgCatalogo/img4-removebg-preview.png" alt=""><h3>Case de iPhone 11</h3><p>COLOR: rojo, amarillo, rosa, verde, negro blanco, morado y rojo. <br>MODELO: iPhone 11, 11 pro y 11 pro max. <br>STOCK: 30 de c/u</p><div class="prices"><span>S/30.00</span><a href="../PAGINA DE PAGO/index.html" class="btn-2">COMPRAR</a></div></div><div class="general-txt"><img src="./ImgCatalogo/img5-removebg-preview.png" alt=""><h3>PARLANTE JBL</h3><p>COLOR: negro, rojo y azul. <br>STOCK: 100 unidades.</p><div class="prices"><span>S/300.00</span><a href="../PAGINA DE PAGO/index.html" class="btn-2">COMPRAR</a></div></div><div class="general-txt"><img src="./ImgCatalogo/img6-removebg-preview.png" alt=""><h3>AUDIFONOS JBL</h3><p>COLOR: negro. <br>STOCK: 70 unidades</p><div class="prices"><span>S/200.00</span><a href="../PAGINA DE PAGO/index.html" class="btn-2">COMPRAR</a></div></div></div></section>'
+        cambio.innerHTML= '<div></div>'
+        const outh= document.querySelector('#cerrar');
+outh.addEventListener('click', async (e)=>{
+    const yar= document.querySelector('#matenme');
+    e.preventDefault();
+    await signOut(auth)
+    try {
+        yar.innerHTML= "<button></button>"
+        cambio.innerHTML='<div id="cambiar><h1 class="c1"><h1 class="c1">BIENVENIDO AL CARRITO DE COMPRAS</h1> <br> <h2 class="c1">Area de registro</h2><br><form action="" id="formu"><input class="c2" type="email" id="email" placeholder="Coloca aqui tu email" /><input class="c2" type="password" id="pass" placeholder="Coloca aqui tu password" /><!--NUEVA FUNCION QUE APRENDI--><br><br><button class="c3" type="submit" >Enviar</button><br><br><br><!--NUEVA FUNCION QUE APRENDI--></form><form action="" id="formu2"><h2 class="c1" >Area de acceso</h2><br><input class="c2" type="email" id="emailA" placeholder="Coloca aqui tu email" /><input class="c2" type="password" id="passA" placeholder="Coloca aqui tu password" /><!--NUEVA FUNCION QUE APRENDI--><br><br><button class="c3" type="submit" >Acceso</button></form><!--NUEVA FUNCION QUE APRENDI--><h1 class="c1" id="login"></h1><br> <h2 class="c1" id="ocultar">Necesita logearse para usar el carrito</h2><br> <h2 class="c1" id="ocultar2">¯_(ツ)_/¯</h2></div><div id="matenme"><button type="button" id="cerrar"></button></div>'
+    } catch (error) {
+        console.log(error);
+    }
+})
+    } catch (error) {
+        console.error(error);
+        console.log(correo2, contra2);
+        showMessage("Algo va mal", "error");
+    }
+})
+
+ const formulario2 = document.querySelector('#formu2');
+formulario2.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const correo2= document.querySelector('#emailA').value;
+    const contra2= document.querySelector('#passA').value;
+
+    const yar= document.querySelector('#matenme');
+    const cambio = document.querySelector('#cambiar');
+    try {
+        const credencial2 = await signInWithEmailAndPassword(auth, correo2, contra2);
+        showMessage("Bienvendio "+ correo2);
+
+        yar.innerHTML= '<button type="button" id="cerrar">Cerrar Sesion</button> <section class="menu-pl container"> <br><br><br><h2 id="combinados">NUESTRAS <span>TENDENCIAS</span> </h2><div class="general-content"><div class="general-txt"><img src="./ImgCatalogo/img1-removebg-preview.png" alt=""><h3>VESTIDOS </h3><p>COLOR: rosa, verde, rojo, negro. <br>TALLA: S-M-L-XL <br>STOCK: 20 unidades</p><div class="prices"><span>S/70</span><a href="../PAGINA DE PAGO/index.html" class="btn-2">COMPRAR</a></div></div><div class="general-txt"><img src="./ImgCatalogo/img2-removebg-preview.png" alt=""><h3>CHAQUETA HARLEM</h3><p>COLOR: verde, azul, negro. <br>TALLA: S-M <br>STOCK: 30 unidades</p><div class="prices"><span>S/89.00</span><a href="../PAGINA DE PAGO/index.html" class="btn-2">COMPRAR</a></div></div><div class="general-txt"><img src="./ImgCatalogo/img3-removebg-preview.png" alt=""><h3>JEAN - HOMBRE</h3><p>COLOR: azul, negro, beige. <br>TALLA: S-M-L <br>STOCK: 50 unidades</p><div class="prices"><span>S/99.00</span><a href="../PAGINA DE PAGO/index.html" class="btn-2">COMPRAR</a></div></div><div class="general-txt"><img src="./ImgCatalogo/img4-removebg-preview.png" alt=""><h3>Case de iPhone 11</h3><p>COLOR: rojo, amarillo, rosa, verde, negro blanco, morado y rojo. <br>MODELO: iPhone 11, 11 pro y 11 pro max. <br>STOCK: 30 de c/u</p><div class="prices"><span>S/30.00</span><a href="../PAGINA DE PAGO/index.html" class="btn-2">COMPRAR</a></div></div><div class="general-txt"><img src="./ImgCatalogo/img5-removebg-preview.png" alt=""><h3>PARLANTE JBL</h3><p>COLOR: negro, rojo y azul. <br>STOCK: 100 unidades.</p><div class="prices"><span>S/300.00</span><a href="../PAGINA DE PAGO/index.html" class="btn-2">COMPRAR</a></div></div><div class="general-txt"><img src="./ImgCatalogo/img6-removebg-preview.png" alt=""><h3>AUDIFONOS JBL</h3><p>COLOR: negro. <br>STOCK: 70 unidades</p><div class="prices"><span>S/200.00</span><a href="../PAGINA DE PAGO/index.html" class="btn-2">COMPRAR</a></div></div></div></section>'
+        cambio.innerHTML= '<div></div>'
+        const outh= document.querySelector('#cerrar');
+outh.addEventListener('click', async (e)=>{
+    const yar= document.querySelector('#matenme');
+    e.preventDefault();
+    await signOut(auth)
+    try {
+        yar.innerHTML= "<button></button>"
+        cambio.innerHTML='<div id="cambiar><h1 class="c1"><h1 class="c1">BIENVENIDO AL CARRITO DE COMPRAS</h1> <br> <h2 class="c1">Area de registro</h2><br><form action="" id="formu"><input class="c2" type="email" id="email" placeholder="Coloca aqui tu email" /><input class="c2" type="password" id="pass" placeholder="Coloca aqui tu password" /><!--NUEVA FUNCION QUE APRENDI--><br><br><button class="c3" type="submit" >Enviar</button><br><br><br><!--NUEVA FUNCION QUE APRENDI--></form><form action="" id="formu2"><h2 class="c1" >Area de acceso</h2><br><input class="c2" type="email" id="emailA" placeholder="Coloca aqui tu email" /><input class="c2" type="password" id="passA" placeholder="Coloca aqui tu password" /><!--NUEVA FUNCION QUE APRENDI--><br><br><button class="c3" type="submit" >Acceso</button></form><!--NUEVA FUNCION QUE APRENDI--><h1 class="c1" id="login"></h1><br> <h2 class="c1" id="ocultar">Necesita logearse para usar el carrito</h2><br> <h2 class="c1" id="ocultar2">¯_(ツ)_/¯</h2></div><div id="matenme"><button type="button" id="cerrar"></button></div>'
+    } catch (error) {
+        console.log(error);
+    }
+})
+    } catch (error) {
+        console.error(error);
+        console.log(correo2, contra2);
+        showMessage("Algo va mal", "error");
+    }
+})
+
+/* CERRAR SESION */
+/*const outh= document.querySelector('#cerrar');
+outh.addEventListener('click', async (e)=>{
+    const yar= document.querySelector('#matenme');
+    matenme
+    e.preventDefault();
+    await signOut(auth)
+    try {
+        yar.innerHTML= "<button></button>"
+        showMessage ("Sesion Cerrada")   
+    } catch (error) {
+        console.log(error);
+    }
+})*/
